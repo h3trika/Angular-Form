@@ -1,0 +1,94 @@
+
+  <div style="text-align: center">
+    <h2>Additional Information</h2>
+    <br>
+  </div>
+
+  <form [formGroup]="stepThreeForm" novalidate>
+    <div class="form-group">
+      <label class="center-block">Address 1:
+        <input class="form-control" formControlName="address1">
+      </label>
+      <div *ngIf="errMsgs.address1.length" class="alert alert-danger">
+        <ul>
+          <li *ngFor="let error of errMsgs.address1">
+            {{error}}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="center-block">Address 2:
+        <input class="form-control" formControlName="address2">
+      </label>
+      <div *ngIf="errMsgs.address2.length" class="alert alert-danger">
+        <ul>
+          <li *ngFor="let error of errMsgs.address2">
+            {{error}}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="center-block">City:
+        <input class="form-control" formControlName="city">
+      </label>
+      <div *ngIf="errMsgs.city.length" class="alert alert-danger">
+        <ul>
+          <li *ngFor="let error of errMsgs.city">
+            {{error}}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="center-block">Country:
+        <input class="form-control" formControlName="country">
+      </label>
+      <div *ngIf="errMsgs.country.length" class="alert alert-danger">
+        <ul>
+          <li *ngFor="let error of errMsgs.country">
+            {{error}}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="center-block">Postal Code:
+        <input class="form-control" formControlName="postalcode">
+      </label>
+      <div *ngIf="errMsgs.postalcode.length" class="alert alert-danger">
+        <ul>
+          <li *ngFor="let error of errMsgs.postalcode">
+            {{error}}
+          </li>
+        </ul>
+      </div>
+    </div>  
+
+    <div class="form-group">
+      <label class="center-block">Phone Number:
+        <input class="form-control" formControlName="phonenumber">
+      </label>
+      <div *ngIf="errMsgs.phonenumber.length" class="alert alert-danger">
+        <ul>
+          <li *ngFor="let error of errMsgs.phonenumber">
+            {{error}}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <a href="javaScript:void(0);" (click)="bonusCodeField=true;">Do you have a bonus code? Click here.</a>
+      <input type="text" class="form-control" *ngIf="bonusCodeField" formControlName="bonuscode">
+    </div>
+
+    <button type="button" class="btn btn-success" [disabled]="!stepThreeForm.valid" (click)="continueToStepFour()">Continue Registration</button>
+    <button type="button" class="btn btn-default" (click)="clearForm()"> Clear Form</button>
+
+  </form>

@@ -1,0 +1,57 @@
+
+  <div style="text-align: center">
+    <h2>User Registration Form</h2>
+    <br>
+  </div>
+
+
+  <form [formGroup]="stepOneForm" novalidate>
+    <div class="form-group">
+      <label class="center-block">Email:
+        <input class="form-control" formControlName="email">
+      </label>
+      <div *ngIf="errMsgs.email.length" class="alert alert-danger">
+        <ul>
+          <li *ngFor="let error of errMsgs.email">
+            {{error}}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="center-block">First Name:
+        <input class="form-control" formControlName="firstname">
+      </label>
+
+      <div *ngIf="errMsgs.firstname.length" class="alert alert-danger">
+        <ul>
+          <li *ngFor="let error of errMsgs.firstname">
+            {{error}}
+          </li> 
+        </ul>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="center-block">Username:
+        <input class="form-control" formControlName="username">
+      </label>
+      <div *ngIf="errMsgs.username.length" class="alert alert-danger">
+        <ul>
+          <li *ngFor="let error of errMsgs.username">
+            {{error}}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="form-group">
+        <input type="checkbox" formControlName="terms" [(ngModel)]="checkboxChecked">
+        By checking this box, I agree to Terms & Conditions of the site.
+    </div>
+
+    <button type="button" class="btn btn-success" [disabled]="!stepOneForm.valid" (click)="continueToStepTwo()">Continue Registration</button>
+    <button type="button" class="btn btn-default" (click)="clearForm()"> Clear Form</button>
+
+  </form>
